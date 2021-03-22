@@ -12,9 +12,13 @@ export function Home() {
 
 	const handleKeyDown = event => {
 		if (event.key === "Enter") {
-			setTaskId(taskId + 1);
-			setTaskList([...taskList, { id: taskId, input: inputValue }]);
-			setInputValue("");
+			if (inputValue === "") {
+				alert("Task can't be empty");
+			} else {
+				setTaskId(taskId + 1);
+				setTaskList([...taskList, { id: taskId, input: inputValue }]);
+				setInputValue("");
+			}
 		}
 	};
 
